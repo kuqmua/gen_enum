@@ -30,7 +30,7 @@ pub fn derive_gen_enum(input: TokenStream) -> TokenStream {
     };
     let enum_ident = syn::Ident::new(&format!("{ident}Enum"), ident.span());
     let gen = quote! {
-        #[derive(Debug, EnumIter, strum_macros::Display, EnumExtenstion)]
+        #[derive(Debug, EnumIter, strum_macros::Display, EnumExtension)]
         pub enum #enum_ident {
             #(#generated)*
         }
