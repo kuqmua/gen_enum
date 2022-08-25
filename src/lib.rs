@@ -1,9 +1,8 @@
-#[proc_macro_derive(GenEnumDerive)]
+#[proc_macro_derive(GenEnum)]
 pub fn derive_gen_enum(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     use convert_case::Case;
     use convert_case::Casing;
-    let ast: syn::DeriveInput =
-        syn::parse(input).expect("derive_gen_enum syn::parse(input) failed");
+    let ast: syn::DeriveInput = syn::parse(input).expect("GenEnum syn::parse(input) failed");
     let ident = &ast.ident;
     let generated = match ast.data {
         syn::Data::Struct(datastruct) => datastruct.fields.into_iter().map(|field| {
