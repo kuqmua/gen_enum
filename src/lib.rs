@@ -1,3 +1,11 @@
+#![deny(
+    clippy::indexing_slicing,
+    clippy::integer_arithmetic,
+    clippy::unwrap_used,
+    clippy::float_arithmetic
+)]
+#![allow(clippy::too_many_arguments)]
+
 #[proc_macro_derive(GenEnum)]
 pub fn derive_gen_enum(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     use convert_case::Case;
