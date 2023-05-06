@@ -8,6 +8,7 @@
 
 #[proc_macro_derive(GenEnum)]
 pub fn derive_gen_enum(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    proc_macro_helpers::panic_location::panic_location("GenEnum");
     use convert_case::Case;
     use convert_case::Casing;
     let ast: syn::DeriveInput = syn::parse(input).expect("GenEnum syn::parse(input) failed");
